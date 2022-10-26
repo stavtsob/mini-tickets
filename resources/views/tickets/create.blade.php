@@ -41,7 +41,7 @@
                             <label for="refers_to" class="col-md-4 col-form-label text-md-end">{{ __('Refers to') }}</label>
 
                             <div class="col-md-6">
-                                <input id="refers_to" type="text" class="form-control @error('refers_to') is-invalid @enderror" name="refers_to" value="{{ old('refers_to') }}" required autocomplete="ticket-refers-to">
+                                <input id="refers_to" type="text" class="form-control @error('refers_to') is-invalid @enderror" name="refers_to" value="{{ old('refers_to') }}" autocomplete="ticket-refers-to">
 
                                 @error('refers_to')
                                     <span class="invalid-feedback" role="alert">
@@ -54,9 +54,22 @@
                             <label for="department" class="col-md-4 col-form-label text-md-end">{{ __('Department') }}</label>
 
                             <div class="col-md-6">
-                                <input id="department" type="text" class="form-control @error('department') is-invalid @enderror" name="department" value="{{ old('department') }}" required autocomplete="ticket-department">
+                                <input id="department" type="text" class="form-control @error('department') is-invalid @enderror" name="department" value="{{ old('department') }}" autocomplete="ticket-department">
 
                                 @error('department')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="telephone" class="col-md-4 col-form-label text-md-end">{{ __('Telephone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="telephone" type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" autocomplete="ticket-telephone">
+
+                                @error('telephone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -91,7 +104,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
+                            <label for="description" rows="10" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
 
                             <div class="col-md-6">
                                 <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="ticket-description"></textarea>

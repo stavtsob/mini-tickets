@@ -1,4 +1,5 @@
 <div class="ticket-list">
+    @include('tickets.search')
     <a class="create-new-ticket-btn" href="{{ route('tickets.create_page') }}">
         <span style="font-size: 64px; margin-right: 16px;">+</span><span>Add a new ticket</span>
     </a>

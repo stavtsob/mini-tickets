@@ -26,8 +26,8 @@ class HomeController extends Controller
     {
         $openTickets = Ticket::where(['status'=>1])->count();
         $inProgressTickets = Ticket::where(['status'=>2])->count();
-        $tickets = Ticket::where('status','<',3)->orderBy('priority','DESC')->get();
-        $closedTickets = Ticket::where('status','=',3)->orderBy('priority','DESC')->get();
+        $tickets = Ticket::where('status','<',3)->orderBy('priority','DESC')->orderBy('created_at', 'DESC')->get();
+        $closedTickets = Ticket::where('status','=',3)->orderBy('created_at','DESC')->get();
         return view('home',[
             'tickets'           => $tickets ?? [],
             'closedTickets'     => $closedTickets ?? 0,
