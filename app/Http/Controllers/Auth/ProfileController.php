@@ -54,13 +54,17 @@ class ProfileController extends Controller
 
     function changePassword(Request $request)
     {
-        $user = Auth::user();
         $data = $request->all();
 
-        if(!Hash::check($data['old-password'], $user->password))
+        $currentUser = Auth::user();
+        $userId = $data['user-id'];
+        $user = User::where('id',$userId)->first();
+
+        $adminChangesPasswordToUser = ($currentUser->id != $user->id && $currentUser->role == 2);
+        if(!$adminChangesPasswordToUser && !Hash::check($data['old-password'], $user->password))
         {
             notify()->error("Wrong password!");
-            return redirect()->route('users.profile', ['user'=>$user]);
+            return redirect()->route('users.profile', $user->id);
         }
         if($data['password'] != $data['password_confirmation'])
         {
@@ -72,5 +76,29 @@ class ProfileController extends Controller
 
         notify()->success("Successfully updated password⚡️");
         return redirect()->route('users.profile', $user->id);
+    }
+
+    function deleteUser(Request $request)
+    {
+        $data = $request->all();
+
+        $currentUser = Auth::user();
+        $userId = $data['user-id'];
+        $user = User::where('id',$userId)->first();
+
+        if($currentUser->role != 2)
+        {
+            notify()->error("You have no access to do that!");
+            return redirect()->route('users.profile', $user->id);
+        }
+        if($user->role == 2)
+        {
+            notify()->error("You cannot delete an administrator user!");
+            return redirect()->route('users.profile', $user->id);
+        }
+
+        $user->delete();
+        notify()->info("User successfully deleted!");
+        return redirect()->route('users.profile');
     }
 }

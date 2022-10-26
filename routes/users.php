@@ -21,6 +21,7 @@ Route::get('/profile', [App\Http\Controllers\Auth\ProfileController::class, 'ind
 Route::get('/profile/{userId}', [App\Http\Controllers\Auth\ProfileController::class, 'index'])->name('users.other_profile');
 Route::post('/profile/{userId}/update', [App\Http\Controllers\Auth\ProfileController::class, 'update'])->name('users.update');
 Route::post('/profile/change-password', [App\Http\Controllers\Auth\ProfileController::class, 'changePassword'])->name('users.change_password');
+Route::post('/profile/delete', [App\Http\Controllers\Auth\ProfileController::class, 'deleteUser'])->name('users.delete');
 
 
 

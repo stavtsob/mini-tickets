@@ -58,27 +58,41 @@
                         </div>
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary" {{ (Auth::user()->role != 2 && Auth::user()->id != $user->id) ? 'disabled' : ''}}>
+                                <button type="submit" class="btn btn-primary" style="{{ (Auth::user()->role != 2 && Auth::user()->id != $user->id) ? 'display:none;' : ''}}">
                                     {{ __('Update profile') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                    @if(Auth::user()->role == 2)
+                    <form method="POST" action="{{ route('users.delete', ['user-id'=>$user->id]) }}" style="margin-top: 10px;">
+                        @csrf
+                        <input name="user-id" type="hidden" value="{{ $user->id }}">
+                        <div class="row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-danger" style="{{ (Auth::user()->role != 2 && Auth::user()->id != $user->id) ? 'display:none;' : ''}}">
+                                    {{ __('Delete user') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    @endif
                 </div>
             </div>
-            @if(Auth::user()->id == $user->id)
+            @if(Auth::user()->id == $user->id || Auth::user()->role == 2)
             <div class="card" style="margin-top: 20px;">
                 <div class="card-header">{{ __('Change Password') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('users.change_password') }}">
                         @csrf
+                        <input name="user-id" type="hidden" value="{{ $user->id }}">
+                        @if(Auth::user()->role != 2 || Auth::user()->id == $user->id)
                         <div class="row mb-3">
                             <label for="old-password" class="col-md-4 col-form-label text-md-end">{{ __('Old Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="old-password" type="password" class="form-control @error('old-password') is-invalid @enderror" name="old-password" required autocomplete="old-password">
-
                                 @error('old-password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -86,6 +100,7 @@
                                 @enderror
                             </div>
                         </div>
+                        @endif
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
