@@ -24,4 +24,9 @@ class Ticket extends Model
     {
         return User::find($this->author_id);
     }
+
+    public function comments()
+    {
+        return TicketComment::where('ticket_id',$this->id)->get();
+    }
 }

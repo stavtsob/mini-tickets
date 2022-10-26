@@ -20,5 +20,6 @@ Route::get('/{ticketCode}', [App\Http\Controllers\Ticket\ViewTicketController::c
 Route::post('/edit/{ticketCode}', [App\Http\Controllers\Ticket\EditTicketController::class, 'update'])->name('tickets.update');
 Route::post('/delete/{ticketCode}', [App\Http\Controllers\Ticket\EditTicketController::class, 'delete'])->name('tickets.delete');
 Route::post('/search-with-code', [App\Http\Controllers\Ticket\SearchTicketController::class, 'searchWithCode'])->name('tickets.search_with_code');
+Route::post('/comment', [App\Http\Controllers\Ticket\TicketCommentController::class, 'create'])->name('tickets.comments.create');
 
 
