@@ -18,8 +18,8 @@ return new class extends Migration
             $table->integer("author_id");
             $table->string("code", 7)->unique();
             $table->string("title", 255);
-            $table->string("refers_to", 100);
-            $table->string("department",100);
+            $table->string("refers_to", 100)->nullable();
+            $table->string("department",100)->nullable();
             $table->string("description",1000);
             $table->integer("priority");
             $table->integer("status");

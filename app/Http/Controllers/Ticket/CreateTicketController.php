@@ -7,6 +7,7 @@ use App\Models\Ticket;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Rules\PhoneNumber;
 
 class CreateTicketController extends Controller
 {
@@ -19,16 +20,17 @@ class CreateTicketController extends Controller
         return Validator::make($data, [
             'code' => ['required', 'string','max:7','unique:tickets'],
             'title' => ['required', 'string', 'max:255'],
-            'refers_to' => ['required', 'string', 'max:100'],
-            'department' => ['required', 'string', 'max:100'],
-            'description' => ['required', 'string', 'max:1000'],
+            'refers_to' => ['sometimes', 'max:100'],
+            'department' => ['sometimes', 'max:100'],
+            'description' => ['required',  'max:1000'],
+            'telephone'  => ['sometimes',  'max:20']
         ]);
     }
     function create(Request $request)
     {
         $data = $request->all();
         $this->validator($data)->validate();
-        $user = Ticket::create([
+        $result = Ticket::create([
             'author_id' => $request->user()->id,
             'code'  => $data['code'],
             'title' => $data['title'],
@@ -37,6 +39,7 @@ class CreateTicketController extends Controller
             'description'    => $data['description'],
             'priority'  => intval($data['priority']),
             'status'  => intval($data['status']),
+            'telephone' => $data['telephone']
         ]);
 
         notify()->success("Successfully create ticket " . $data['code'] ." ⚡️");

@@ -28,6 +28,7 @@ class EditTicketController extends Controller
                             'description'    => $data['description'],
                             'priority'  => intval($data['priority']),
                             'status'  => intval($data['status']),
+                            'telephone' => $data['telephone']
                         ]);
         notify()->success("Successfully updated ticket " . $ticketCode ." ⚡️");
         return redirect()->route('home');
@@ -44,9 +45,10 @@ class EditTicketController extends Controller
     {
         return Validator::make($data, [
             'title' => ['required', 'string', 'max:255'],
-            'refers_to' => ['required', 'string', 'max:100'],
-            'department' => ['required', 'string', 'max:100'],
-            'description' => ['required', 'string', 'max:1000'],
+            'refers_to' => ['required','max:100'],
+            'telephone' => ['sometimes', 'max:20'],
+            'department' => ['sometimes', 'max:100'],
+            'description' => ['sometimes', 'string', 'max:1000'],
         ]);
     }
 }
