@@ -11,15 +11,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        App\Models\User::find(1)->delete();
-
-	    App\Models\User::updateOrCreate([
-            'id'    => 1,
-		    'name' => 'Admin',
-		    'email' => 'test@mail.com',
-            'username' => 'administrator',
-            'role'  => 2, //administrator
-		    'password' => \Illuminate\Support\Facades\Hash::make('123456'),
-	    ]);
+	    App\Models\User::updateOrCreate(
+            ['name' => 'Admin'],
+		    ['email' => 'test@mail.com'],
+            ['username' => 'administrator'],
+            ['role'  => 2], //administrator
+		    ['password' => \Illuminate\Support\Facades\Hash::make('123456')],
+	    );
     }
 }
