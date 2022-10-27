@@ -19,6 +19,7 @@ return [
     "priority" => "Priority",
     "refers_to" => "Refers to",
     "search" => "Search",
+    "search_ticket_code" => "Search ticket code",
     "send" => "Send",
     "status" => "Status",
     "telephone" => "Telephone",
