@@ -30,6 +30,7 @@ class CreateTicketController extends Controller
     {
         $data = $request->all();
         $this->validator($data)->validate();
+
         $result = Ticket::create([
             'author_id' => $request->user()->id,
             'code'  => $data['code'],
@@ -42,7 +43,7 @@ class CreateTicketController extends Controller
             'telephone' => $data['telephone']
         ]);
 
-        notify()->success("Successfully create ticket " . $data['code'] ." ⚡️");
+        notify()->success("Successfully created ticket " . $data['code'] ." ⚡️");
         return redirect()->route('home');
     }
 

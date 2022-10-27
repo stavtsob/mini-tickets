@@ -17,7 +17,8 @@ class Ticket extends Model
         'department',
         'description',
         'priority',
-        'status'
+        'status',
+        'telephone'
     ];
 
     public function author()
