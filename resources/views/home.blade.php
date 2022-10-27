@@ -10,7 +10,7 @@
                         {{$openTickets}}
                     </div>
                     <div>
-                        tickets <b>open</b>
+                        tickets <b>{{__('general.open')}}</b>
                     </div>
                 </a>
                 <a href="?status_filter=2"  class="stats-item {{ $statusFilter == 2 ? 'selected':''}}">
@@ -18,7 +18,7 @@
                         {{$inProgressTickets}}
                     </div>
                     <div>
-                        tickets <b>in-progress</b>
+                        tickets <b>{{__('general.in-progress')}}</b>
                     </div>
                 </a>
                 <a href="?status_filter=0"  class="stats-item {{ $statusFilter == 0 ? 'selected':''}}">
@@ -26,12 +26,12 @@
                         {{$openTickets + $inProgressTickets}}
                     </div>
                     <div>
-                        tickets <b>total</b>.
+                        tickets <b>{{__('general.total')}}</b>.
                     </div>
                 </a>
             </div>
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{__('general.dashboard')}}</div>
 
                 <div class="card-body">
                     @if (session('status'))
