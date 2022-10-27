@@ -48,7 +48,7 @@ class TicketCommentController extends Controller
             abort(403);
         }
 
-        $ticket = Ticket::find($comment->ticket_id)->first();
+        $ticket = Ticket::where('id',$comment->ticket_id)->first();
         $comment->delete();
         notify()->info("Comment was deleted!⚡️");
         return redirect()->route('tickets.view', $ticket->code);
