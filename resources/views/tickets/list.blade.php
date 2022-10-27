@@ -10,7 +10,7 @@
     <?php } ?>
 
     @if (count($closedTickets)>0)
-        <h4 style="margin-top: 30px;margin-left: 10px;">Closed Tickets</h4>
+        <h4 style="margin-top: 60px;margin-left: 10px;">Closed Tickets</h4>
     @endif
     <?php
     foreach ($closedTickets as $closedTicket) {

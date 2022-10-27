@@ -60,6 +60,8 @@ return [
 
     'logo'  => env('APP_LOGO'),
 
+    'favicon'   => env('APP_FAVICON'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

@@ -15,7 +15,7 @@ class SearchTicketController extends Controller
         {
             abort(403);
         }
-        $ticketCode = $data['code'];
+        $ticketCode = strtoupper($data['code']);
         $ticket = Ticket::where('code',$ticketCode)->first();
         if(!$ticket)
         {

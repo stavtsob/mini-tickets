@@ -59,15 +59,16 @@
 }
 .ticket-left
 {
-    width: 50%;
+    width: 65%;
     min-width: 320px;
 }
 .ticket-right
 {
-    width: 50%;
+    width: 30%;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
+    flex-direction: column;
 }
 .ticket-priority-bar
 {
@@ -114,9 +115,26 @@
 }
 .stats-item
 {
+    padding: 5px 10px;
     width: 25%;
     text-align: center;
     margin-right: 30px;
+    border-radius: 6px;
+    color: gray;
+    text-decoration: none;
+    cursor: pointer;
+}
+.stats-item.selected{
+    background: white;
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+}
+.stats-item:not(.selected):hover{
+    background: rgba(255, 255, 255, 0.313);
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+}
+.stats-item:hover
+{
+    color: gray;
 }
 .stats-item .stat-number
 {
@@ -163,24 +181,33 @@
 .comment {
     width: 80%;
     min-width: 320px;
-    background: white;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 20px 30px;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
+    background-color: rgb(33, 116, 232);
+    color: white;
+    font-weight: 400;
+    border-top-left-radius: 0px;
 }
 .comment.mine
 {
     margin-left: 80px;
     background-color: #fcfcfc;
+    color: gray;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 8px;
 }
 .comment-left
 {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    width: 80%;
 }
 .comment-dot
 {
@@ -190,11 +217,15 @@
     background-color: rgb(248, 176, 34);
     margin-right: 10px;
 }
-.comment-user
+.comment .comment-user
 {
     font-weight: 700;
-    color: rgb(32, 32, 92);
+    color: white;
     margin-right: 10px;
+}
+.comment.mine .comment-user
+{
+    color: rgb(32, 32, 92);
 }
 #comment
 {
@@ -211,3 +242,84 @@
     justify-content: center;
 }
 
+.comments-count
+{
+    text-decoration: underline;
+    color: gray;
+    font-size: 11px;
+}
+.priority-1 .point.active
+{
+    background-color: rgb(192, 252, 192);
+}
+.priority-2 .point.active
+{
+    background-color: rgb(204, 236, 134);
+}
+.priority-3 .point.active
+{
+    background-color: rgb(247 229 89);
+}
+.priority-4 .point.active
+{
+    background-color: rgb(237, 174, 80);
+}
+.priority-5 .point.active
+{
+    background-color: rgb(240, 102, 90);
+}
+
+.ticket.priority-5:not(.closed) .point.active
+{
+    animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+  0% {
+    transform: scale(0.97);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(255, 82, 82, 0);
+  }
+
+  100% {
+    transform: scale(0.97);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
+}
+.comment .posted-at {
+    font-size: 11px;
+    color: rgb(216, 215, 215);
+    width: 100%;
+}
+.comment.mine .posted-at {
+    font-size: 11px;
+    color: gray;
+    width: 100%;
+}
+.comment-right {
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    width: 20%;
+}
+.comment-options
+{
+    position: relative;
+    top: -50px;
+    right: -30px;
+}
+.comment-options a.btn.btn-secondary.dropdown-toggle
+{
+    background: none!important;
+    color: gray;
+    border: none;
+    font-size: 22px;
+}
+.comment-options a.btn.btn-secondary.dropdown-toggle::after
+{
+    content: none;
+}

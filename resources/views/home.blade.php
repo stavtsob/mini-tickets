@@ -5,30 +5,30 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="statistics">
-                <div class="stats-item">
+                <a href="?status_filter=1" class="stats-item {{ $statusFilter == 1 ? 'selected':''}}">
                     <div class="stat-number" >
                         {{$openTickets}}
                     </div>
                     <div>
                         tickets <b>open</b>
                     </div>
-                </div>
-                <div class="stats-item">
+                </a>
+                <a href="?status_filter=2"  class="stats-item {{ $statusFilter == 2 ? 'selected':''}}">
                     <div class="stat-number">
                         {{$inProgressTickets}}
                     </div>
                     <div>
                         tickets <b>in-progress</b>
                     </div>
-                </div>
-                <div class="stats-item">
+                </a>
+                <a href="?status_filter=0"  class="stats-item {{ $statusFilter == 0 ? 'selected':''}}">
                     <div class="stat-number">
                         {{$openTickets + $inProgressTickets}}
                     </div>
                     <div>
                         tickets <b>total</b>.
                     </div>
-                </div>
+                </a>
             </div>
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>

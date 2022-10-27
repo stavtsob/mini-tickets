@@ -1,4 +1,4 @@
-<a class="ticket {{ $classes }}" href="{{route('tickets.view', $ticket->code)}}">
+<a class="ticket {{ $classes }} priority-{{$ticket->priority}}" href="{{route('tickets.view', $ticket->code)}}">
     <div class="ticket-left">
         <div class="ticket-title">{{ $ticket['code']}}: {{$ticket['title']}}</div>
         <span style="color:gray;font-size:11px;position: relative;top:-10px">Created at {{$ticket->created_at->format('H:i d M Y')}}</span>
@@ -34,11 +34,12 @@
                         break;
                 }
                 ?>
-            </span></div>
+            </span>
+        </div>
     </div>
     <div class="ticket-right">
-        <div class="ticket-priority-bar">
-            <div class="ticket-field" style="width: 100%">Priority</div>
+        <div class="ticket-priority-bar" >
+            <div class="ticket-field " style="width: 100%">Priority</div>
             <?php for($i=0;$i<$ticket['priority'];$i++)
             {
                 echo '<span class="point active"></span>';
@@ -48,6 +49,9 @@
                 echo '<span class="point"></span>';
             }
             ?>
+        </div>
+        <div class="comments-count">
+            {{ $ticket->comments()->count() }} comments
         </div>
     </div>
 </a>
