@@ -8,20 +8,19 @@ use Illuminate\Http\Request;
 
 class SearchTicketController extends Controller
 {
-    function searchWithCode(Request $request)
+    function search(Request $request)
     {
         $data = $request->all();
         if(!array_key_exists('code',$data))
         {
             abort(403);
         }
-        $ticketCode = strtoupper($data['code']);
-        $ticket = Ticket::where('code',$ticketCode)->first();
-        if(!$ticket)
-        {
-            notify()->error('No ticket found for code "'.$ticketCode.'".');
-            return redirect()->route('home');
-        }
-        return redirect()->route('tickets.view',$ticketCode);
+        $searchParam = $data['code'];
+        $tickets = Ticket::search($searchParam)->get();
+
+        return view('tickets.search_results',[
+            'tickets'   => $tickets,
+            'search_param'  => $searchParam
+        ]);
     }
 }

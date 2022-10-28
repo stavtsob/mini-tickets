@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
+
 
 class Ticket extends Model
 {
-    use HasFactory;
+    use HasFactory, Searchable;
 
     protected $fillable = [
         'code',
@@ -29,5 +31,22 @@ class Ticket extends Model
     public function comments()
     {
         return TicketComment::where('ticket_id',$this->id)->get();
+    }
+
+    /**
+     * Get the indexable data array for the model.
+     *
+     * @return array
+     */
+    public function toSearchableArray()
+    {
+        return [
+            'code' => $this->code,
+            'title' => $this->title,
+            'telephone' => $this->telephone,
+            'refers_to' => $this->refers_to,
+            'department' => $this->department,
+            'description' => $this->description,
+        ];
     }
 }

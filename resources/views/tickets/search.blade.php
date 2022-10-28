@@ -1,6 +1,6 @@
-<form class="search-ticket" method="POST" action="{{ route('tickets.search_with_code') }}">
+<form class="search-ticket" method="post" action="{{ route('tickets.search') }}">
     @csrf
-    <input name="code" placeholder="{{__('general.search_ticket_code')}}">
+    <input name="code" placeholder="{{__('general.search')}}">
     <button type="submit" class="btn btn-primary">
         {{__('general.search')}}
     </button>
