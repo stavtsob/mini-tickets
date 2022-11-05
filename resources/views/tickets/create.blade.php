@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="priority" class="col-md-4 col-form-label text-md-end">{{ __('Priority') }}</label>
+                            <label for="priority" class="col-md-4 col-form-label text-md-end">{{ __('general.priority') }}</label>
 
                             <div class="col-md-6">
                                 <input type="range" class="form-range" id="priority" name="priority" min="0" max="5" value="1">
@@ -104,7 +104,20 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="description" rows="10" class="col-md-4 col-form-label text-md-end">{{__('general.priority')}}</label>
+                            <label for="deadline" class="col-md-4 col-form-label text-md-end">{{__('general.deadline')}}</label>
+
+                            <div class="col-md-6">
+                                <input id="deadline" type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" value="{{ old('deadline') }}" autocomplete="ticket-deadline">
+
+                                @error('deadline')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="description" rows="10" class="col-md-4 col-form-label text-md-end">{{__('general.description')}}</label>
 
                             <div class="col-md-6">
                                 <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="ticket-description"></textarea>

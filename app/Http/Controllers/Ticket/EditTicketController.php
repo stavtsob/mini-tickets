@@ -28,10 +28,11 @@ class EditTicketController extends Controller
                             'description'    => $data['description'],
                             'priority'  => intval($data['priority']),
                             'status'  => intval($data['status']),
-                            'telephone' => $data['telephone']
+                            'telephone' => $data['telephone'],
+                            'deadline'  => $data['deadline']
                         ]);
         notify()->success("Successfully updated ticket " . $ticketCode ." ⚡️");
-        return redirect()->route('home');
+        return redirect()->route('tickets.view', $ticketCode);
     }
 
     function delete(Request $request, $ticketCode)

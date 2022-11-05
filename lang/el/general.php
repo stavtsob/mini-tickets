@@ -31,5 +31,7 @@ return [
     "total_capital" => "Συνολικά",
     "update_ticket" => "Αποθήκευση ticket",
     "user_comments" => "Σχόλια χρηστών",
-    "write_your_comment_here" => "Γράψτε το σχόλιο σας εδώ..."
+    "write_your_comment_here" => "Γράψτε το σχόλιο σας εδώ...",
+    "delete"            => 'Διαγραφή',
+    "deadline"          => 'Προθεσμία',
 ];

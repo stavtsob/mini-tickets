@@ -70,21 +70,17 @@
     justify-content: flex-end;
     flex-direction: column;
 }
-.ticket-priority-bar
-{
-    position: relative;
-    top: -30px;
+.ticket-priority-bar {
     display: flex;
     flex-wrap: wrap;
-    height: 32px;
+    height: 12px;
 }
-.ticket-priority-bar .point
-{
+.ticket-priority-bar .point {
     width: 12px;
     height: 100%;
-    background-color: rgb(234, 230, 230);
-    margin-left: 4px;
+    background-color: #eae6e6;
     border-radius: 2px;
+    margin-right: 3px;
 }
 .ticket-priority-bar .point.active
 {
@@ -243,11 +239,11 @@
     justify-content: center;
 }
 
-.comments-count
-{
+.comments-count {
     text-decoration: underline;
     color: gray;
     font-size: 11px;
+    margin-top: 30px;
 }
 .priority-1 .point.active
 {
@@ -323,4 +319,7 @@
 .comment-options a.btn.btn-secondary.dropdown-toggle::after
 {
     content: none;
+}
+a.ticket.closed .ticket-left div:not(.ticket-title) {
+    display: none;
 }

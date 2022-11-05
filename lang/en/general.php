@@ -31,5 +31,7 @@ return [
     "total_capital" => "Total",
     "update_ticket" => "Update ticket",
     "user_comments" => "User comments",
-    "write_your_comment_here" => "Write your comment here..."
+    "write_your_comment_here" => "Write your comment here...",
+    "delete"            => 'Delete',
+    "deadline"          => 'Deadline',
 ];

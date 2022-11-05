@@ -99,6 +99,19 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <label for="deadline" class="col-md-4 col-form-label text-md-end">{{__('general.deadline')}}</label>
+
+                            <div class="col-md-6">
+                                <input id="deadline" type="date" class="form-control @error('deadline') is-invalid @enderror" name="deadline" value="{{ old('deadline') ?? $ticket->deadline }}" autocomplete="ticket-deadline">
+
+                                @error('deadline')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label for="description" class="col-md-4 col-form-label text-md-end">{{__('general.description')}}</label>
 
                             <div class="col-md-6">
