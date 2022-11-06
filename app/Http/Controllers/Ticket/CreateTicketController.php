@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Ticket;
 
+use App\Enums\UserActivityType;
 use Illuminate\Support\Str;
 use App\Models\Ticket;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Jobs\UserActivity\LogUserActivityJob;
 use App\Rules\PhoneNumber;
 
 class CreateTicketController extends Controller
@@ -43,8 +45,9 @@ class CreateTicketController extends Controller
             'telephone' => $data['telephone'],
             'deadline'  => $data['deadline']
         ]);
-
+        $this->dispatch(new LogUserActivityJob($request->user(), UserActivityType::LOG, "Created a ticket \"$data[code] : $data[title]\""));
         notify()->success("Successfully created ticket " . $data['code'] ." ⚡️");
+
         return redirect()->route('home');
     }
 

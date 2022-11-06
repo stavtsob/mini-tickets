@@ -323,3 +323,36 @@
 a.ticket.closed .ticket-left div:not(.ticket-title) {
     display: none;
 }
+.activity
+{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+    padding: 10px 0px;
+}
+.activity .activity-type
+{
+    width: 8px;
+    height: 8px;
+    background-color: gray;
+    border-radius: 50%;
+}
+.activity .activity-type.dot-2
+{
+    background-color: rgb(255, 225, 0);
+}
+.activity .activity-type.dot-3
+{
+    background-color: tomato;
+}
+.activity .created_at
+{
+    border-radius: 4px;
+    color: black;
+    border: 1px solid black;
+    padding: 1px 6px;
+    font-weight: 300;
+    font-size: 11px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

@@ -133,7 +133,20 @@
                     </form>
                 </div>
             </div>
+            <div class="card" style="margin-top: 20px;">
+                <div class="card-header">{{ __('Activity Log') }}</div>
+                <div class="card-body">
+                    @foreach ($user->activities as $activity)
+                        <div class="activity">
+                            <div class="activity-type dot-{{$activity->type}}"></div>
+                            <span class="created_at">{{$activity->created_at}}</span>
+                            <span class="title">{{$activity->title}}</span>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
             @endif
+
         </div>
     </div>
 </div>

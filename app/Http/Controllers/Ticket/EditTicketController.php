@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Ticket;
 
+use App\Enums\UserActivityType;
 use App\Http\Controllers\Controller;
+use App\Jobs\UserActivity\LogUserActivityJob;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -31,13 +33,17 @@ class EditTicketController extends Controller
                             'telephone' => $data['telephone'],
                             'deadline'  => $data['deadline']
                         ]);
+        $this->dispatch(new LogUserActivityJob($request->user(), UserActivityType::LOG, "Edited ticket \"$data[code] : $data[title]\""));
         notify()->success("Successfully updated ticket " . $ticketCode ." ⚡️");
+
         return redirect()->route('tickets.view', $ticketCode);
     }
 
     function delete(Request $request, $ticketCode)
     {
         $ticket = Ticket::where(['code'=>$ticketCode])->first()->delete();
+        $this->dispatch(new LogUserActivityJob($request->user(), UserActivityType::WARNING, "Deleted ticket \"$ticketCode\""));
+
         notify()->success("Successfully deleted ticket " . $ticketCode ." ⚡️");
         return redirect()->route('home');
     }

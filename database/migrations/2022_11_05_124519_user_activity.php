@@ -14,12 +14,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_activity', function(Blueprint $table)
+        Schema::create('user_activities', function(Blueprint $table)
         {
             $table->id();
             $table->integer('user_id');
-            $table->interger('type')->default(UserActivityType::LOG);
+            $table->integer('type')->default(UserActivityType::LOG);
             $table->string('title');
+            $table->timestamps();
         });
     }
 
