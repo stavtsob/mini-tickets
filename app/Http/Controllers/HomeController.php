@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 
@@ -31,11 +32,18 @@ class HomeController extends Controller
 
         // Filter tickets
         $statusFilter = $request->query('status_filter', 0);
+        $departments = Department::all();
         $tickets = $statusFilter == 0 ? $tickets : $tickets->where('status', $statusFilter);
-        $tickets = $tickets->orderBy('priority', 'DESC')->get();
+
+        $ticketsByDepartment = [];
+        foreach($departments as $department)
+        {
+            $ticketsByDepartment[$department->code] = $tickets->where('department', $department->code)->orderBy('priority', 'DESC')->get();
+        }
+
 
         return view('home', [
-            'tickets'           => $tickets ?? [],
+            'tickets'           => $ticketsByDepartment ?? [],
             'statusFilter'      => $statusFilter,
             'closedTickets'     => $closedTickets ?? 0,
             'openTickets'       => $openTickets ?? 0,

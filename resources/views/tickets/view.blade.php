@@ -77,7 +77,9 @@
                                 <select class="form-select" name="status" aria-label="status" class="form-control @error('status') is-invalid @enderror">
                                     <option value=1 {{ $ticket->status == 1 ? 'selected':''}}>{{__('general.opened')}}</option>
                                     <option value=2 {{ $ticket->status == 2 ? 'selected':''}}>{{__('general.in-progress_capital')}}</option>
-                                    <option value=3 {{ $ticket->status == 3 ? 'closed':''}}>{{__('general.closed')}}</option>
+                                    @if (Auth::user()->role == 2)
+                                        <option value=3 {{ $ticket->status == 3 ? 'closed':''}}>{{__('general.closed')}}</option>
+                                    @endif
                                   </select>
                                 @error('status')
                                     <span class="invalid-feedback" role="alert">
