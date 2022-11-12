@@ -33,7 +33,7 @@ class EditTicketController extends Controller
                             'telephone' => $data['telephone'],
                             'deadline'  => $data['deadline']
                         ]);
-        $this->dispatch(new LogUserActivityJob($request->user(), UserActivityType::LOG, "Edited ticket \"$data[code] : $data[title]\""));
+        $this->dispatch(new LogUserActivityJob($request->user(), UserActivityType::LOG, "Edited ticket \"$ticketCode : $data[title]\""));
         notify()->success("Successfully updated ticket " . $ticketCode ." ⚡️");
 
         return redirect()->route('tickets.view', $ticketCode);
