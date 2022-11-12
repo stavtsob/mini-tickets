@@ -15,7 +15,7 @@
                             <label for="code" class="col-md-4 col-form-label text-md-end">{{__('general.ticket_code')}}</label>
 
                             <div class="col-md-6">
-                                <input id="code" type="text" class="form-control" value="{{$ticket->code}}" disabled>
+                                <input id="code" name="code" type="text" class="form-control" value="{{$ticket->code}}" disabled>
                             </div>
                         </div>
                         <div class="row mb-3">
