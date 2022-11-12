@@ -25,29 +25,23 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $openTickets = Ticket::where(['status' => 1])->count();
-        $inProgressTickets = Ticket::where(['status' => 2])->count();
-        $tickets = Ticket::where('status', '<', 3);
-        $closedTickets = Ticket::where('status', '=', 3)->orderBy('created_at', 'DESC')->get();
+        // $openTickets = Ticket::where(['status' => 1])->count();
+        // $inProgressTickets = Ticket::where(['status' => 2])->count();
+        // $tickets = Ticket::where('status', '<', 3);
+        // $closedTickets = Ticket::where('status', '=', 3)->orderBy('created_at', 'DESC')->get();
 
-        // Filter tickets
-        $statusFilter = $request->query('status_filter', 0);
-        $departments = Department::all();
-        $tickets = $statusFilter == 0 ? $tickets : $tickets->where('status', $statusFilter);
+        // // Filter tickets
+        // $statusFilter = $request->query('status_filter', 0);
+        // $departments = Department::all();
+        // $tickets = $statusFilter == 0 ? $tickets : $tickets->where('status', $statusFilter);
 
-        $ticketsByDepartment = [];
-        foreach($departments as $department)
-        {
-            $ticketsByDepartment[$department->code] = $tickets->where('department', $department->code)->orderBy('priority', 'DESC')->get();
-        }
+        // $ticketsByDepartment = [];
+        // foreach($departments as $department)
+        // {
+        //     $ticketsByDepartment[$department->code] = $tickets->where('department', $department->code)->orderBy('priority', 'DESC')->get();
+        // }
 
 
-        return view('home', [
-            'tickets'           => $ticketsByDepartment ?? [],
-            'statusFilter'      => $statusFilter,
-            'closedTickets'     => $closedTickets ?? 0,
-            'openTickets'       => $openTickets ?? 0,
-            'inProgressTickets' => $inProgressTickets ?? 0
-        ]);
+        return view('home');
     }
 }

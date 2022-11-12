@@ -9,13 +9,17 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Jobs\UserActivity\LogUserActivityJob;
+use App\Models\Department;
 use App\Rules\PhoneNumber;
 
 class CreateTicketController extends Controller
 {
     function index()
     {
-        return view('tickets.create', ['ticket_code'=> $this->generateTicketCode()]);
+        return view('tickets.create', [
+            'ticket_code'=> $this->generateTicketCode(),
+            'departments'=> Department::all()
+        ]);
     }
     protected function validator(array $data)
     {

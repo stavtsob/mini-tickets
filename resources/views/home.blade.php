@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="statistics">
                 <a href="?status_filter=1" class="stats-item {{ $statusFilter == 1 ? 'selected':''}}">
                     <div class="stat-number" >
@@ -33,7 +34,7 @@
             <div class="card">
                 <div class="card-header">{{__('general.dashboard')}}</div>
 
-                <div class="card-body">
+                <div class="card-body" style="display: flex;flex-wrap:wrap">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
