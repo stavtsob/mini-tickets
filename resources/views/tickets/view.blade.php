@@ -48,7 +48,15 @@
                             <label for="department" class="col-md-4 col-form-label text-md-end">{{__('general.department')}}</label>
 
                             <div class="col-md-6">
-                                <input id="department" type="text" class="form-control @error('department') is-invalid @enderror" name="department" value="{{ old('department') ?? $ticket->department }}"  autocomplete="ticket-department">
+                                <select class="form-select" name="department" aria-label="department" class="form-control @error('department') is-invalid @enderror">
+                                    @foreach ($departments as $department)
+                                        @if($ticket->department == $department->code)
+                                            <option value="{{ $department->code }}" selected>{{ $department->title }}</option>
+                                        @else
+                                            <option value="{{ $department->code }}">{{ $department->title }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
 
                                 @error('department')
                                     <span class="invalid-feedback" role="alert">

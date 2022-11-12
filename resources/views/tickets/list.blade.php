@@ -2,10 +2,12 @@
 <!-- Tickets per Department-->
 @foreach ($departments as $department)
     <div class="department-ticket-list">
-        <h4>{{$department->title}}</h4>
+        <div style="height: 64px; display:flex;align-items:center;justify-content:center">
+            <div class="department-title {{$department->code}}-title" style="text-align:center">{{$department->title}}</div>
+        </div>
         <div class="ticket-list">
-            <a class="create-new-ticket-btn" href="{{ route('tickets.create_page') }}">
-                <span style="font-size: 64px; margin-right: 16px;">+</span><span>{{__('general.add_new_ticket')}}</span>
+            <a class="create-new-ticket-btn" href="{{ route('tickets.create_page',['department'=>$department->code]) }}">
+                <span style="font-size: 42px; margin-right: 16px;">+</span><span>{{__('general.add_new_ticket')}}</span>
             </a>
             <?php
             foreach($tickets[$department->code] as $ticket)
@@ -21,10 +23,12 @@
     @if (count($closedTickets)>0)
         <h4 style="margin-top: 60px;margin-left: 10px;">{{__('general.closed_tickets')}}</h4>
     @endif
-    <?php
-    foreach ($closedTickets as $closedTicket) {
-    ?>
-        @include('tickets.list-item',['ticket'=>$closedTicket, 'classes'=>'closed'])
-    <?php }  ?>
+        <div class="closed-tickets">
+            <?php
+            foreach ($closedTickets as $closedTicket) {
+            ?>
+                @include('tickets.list-item',['ticket'=>$closedTicket, 'classes'=>'closed'])
+            <?php }  ?>
+        </div>
     </div>
 @endif

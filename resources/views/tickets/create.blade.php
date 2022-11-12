@@ -56,7 +56,11 @@
                             <div class="col-md-6">
                                 <select class="form-select" name="department" aria-label="department" class="form-control @error('department') is-invalid @enderror">
                                     @foreach ($departments as $department)
-                                        <option value="{{ $department->code }}">{{ $department->title }}</option>
+                                        @if(request()->get('department') == $department->code)
+                                            <option value="{{ $department->code }}" selected>{{ $department->title }}</option>
+                                        @else
+                                            <option value="{{ $department->code }}">{{ $department->title }}</option>
+                                        @endif
                                     @endforeach
                                 </select>
 
