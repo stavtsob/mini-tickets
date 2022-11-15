@@ -1,5 +1,8 @@
 <a class="ticket {{ $classes }} priority-{{$ticket->priority}}" href="{{route('tickets.view', $ticket->code)}}">
     <div class="ticket-left">
+        @if($ticket->deadline)
+            <div class="expires-at">{{__('general.expires_at')}}{{$ticket->deadline}}</div>
+        @endif
         <div class="ticket-title">{{ $ticket['code']}}: {{$ticket['title']}}</div>
         <span style="color:gray;font-size:11px;position: relative;top:-10px">{{__('general.created_at')}} {{$ticket->created_at->format('H:i d M Y')}}</span>
         <div class="ticket-field"><b>{{__('general.refers_to')}}: </b>{{$ticket['refers_to']}}</div>

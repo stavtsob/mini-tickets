@@ -34,4 +34,5 @@ return [
     "write_your_comment_here" => "Write your comment here...",
     "delete"            => 'Delete',
     "deadline"          => 'Deadline',
+    'expires_at'    => 'Expires at '
 ];
