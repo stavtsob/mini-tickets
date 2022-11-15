@@ -34,5 +34,5 @@ return [
     "write_your_comment_here" => "Γράψτε το σχόλιο σας εδώ...",
     "delete"            => 'Διαγραφή',
     "deadline"          => 'Προθεσμία',
-    'expires_at'    => 'Λήγει σε '
+    'expires_at'    => 'Λήγει στις '
 ];

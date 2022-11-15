@@ -407,14 +407,24 @@ a.ticket.closed .ticket-left div:not(.ticket-title) {
 {
     width: 20%;
     margin-right: 5px;
+}
+.ticket:hover .expires-at
+{
+    opacity: 1;
+    background-color: rgb(202, 45, 50);
+    color: white;
+}
 .ticket .expires-at
 {
     position: absolute;
-    background-color: rgb(202, 45, 50);
-    color: white;
+    border: 1px solid rgb(202, 45, 50);
+    color: rgb(202, 45, 50);
+    font-weight: 700;
     font-size: 11px;
-    top: -10px;
+    top: -15px;
     right: 5px;
     padding: 1px 10px;
     border-radius: 4px;
+    opacity: 0.4;
+    transition-duration: 0.3s;
 }
