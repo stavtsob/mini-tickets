@@ -41,6 +41,14 @@ class TicketListComposer
             $ticketsByDepartment[$department->code] = $tickets->where('department', $department->code)->orderBy('priority', 'DESC')->get();
         }
 
+        // Collect Closed Tickets
+        $closedTickets = [];
+        foreach($departments as $department)
+        {
+            $tickets = Ticket::where('status', '=', 3);
+            $closedTickets[$department->code] = $tickets->where('department', $department->code)->orderBy('created_at', 'DESC')->get();
+        }
+
 
         $view->with([
             'tickets'           => $ticketsByDepartment ?? [],

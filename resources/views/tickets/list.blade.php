@@ -19,16 +19,20 @@
 @endforeach
 <!-- Closed Tickets -->
 @if(isset($closedTickets))
-    <div style="width:100%">
+    <div style="border-top: 1px solid rgb(238, 237, 237);margin-top: 50px;width:100%;display: flex;flex-wrap:wrap;justify-content:space-between">
     @if (count($closedTickets)>0)
-        <h4 style="margin-top: 60px;margin-left: 10px;">{{__('general.closed_tickets')}}</h4>
+        <h4 style="width:100%;margin-top: 60px;margin-left: 10px;">{{__('general.closed_tickets')}}</h4>
     @endif
-        <div class="closed-tickets">
-            <?php
-            foreach ($closedTickets as $closedTicket) {
-            ?>
-                @include('tickets.list-item',['ticket'=>$closedTicket, 'classes'=>'closed'])
-            <?php }  ?>
+    @foreach ($departments as $department)
+        <div class="department-ticket-list" >
+            <div class="ticket-list">
+                <?php
+                foreach($closedTickets[$department->code] as $ticket)
+                {?>
+                    @include('tickets.list-item',['ticket'=>$ticket, 'classes'=>'closed'])
+                <?php } ?>
+            </div>
         </div>
+@endforeach
     </div>
 @endif
