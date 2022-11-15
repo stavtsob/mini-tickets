@@ -15,7 +15,7 @@ class DepartmentSeeder extends Seeder
      */
     public function run()
     {
-        Department::updateOrCreate(['code'=>'call_center','title'=>'CALL CENTER']);
+        Department::updateOrCreate(['code'=>'call_center','title'=>'ADMINISTRATIVE SERVICES - CALL CENTER']);
         Department::updateOrCreate(['code'=>'social_services_department','title'=>'SOCIAL SERVICES']);
         Department::updateOrCreate(['code'=>'it_department','title'=>'IT']);
         Department::updateOrCreate(['code'=>'pr_communication_media','title'=>'PR | COMMUNICATION-MEDIA']);
