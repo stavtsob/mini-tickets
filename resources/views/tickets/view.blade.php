@@ -86,7 +86,7 @@
                                     <option value=1 {{ $ticket->status == 1 ? 'selected':''}}>{{__('general.opened')}}</option>
                                     <option value=2 {{ $ticket->status == 2 ? 'selected':''}}>{{__('general.in-progress_capital')}}</option>
                                     @if (Auth::user()->role == 2)
-                                        <option value=3 {{ $ticket->status == 3 ? 'closed':''}}>{{__('general.closed')}}</option>
+                                        <option value=3 {{ $ticket->status == 3 ? 'selected':''}}>{{__('general.closed')}}</option>
                                     @endif
                                   </select>
                                 @error('status')

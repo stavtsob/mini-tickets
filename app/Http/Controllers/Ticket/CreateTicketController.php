@@ -35,7 +35,12 @@ class CreateTicketController extends Controller
     function create(Request $request)
     {
         $data = $request->all();
-        $this->validator($data)->validate();
+        $validator = $this->validator($data);
+        if($validator->fails())
+        {
+            notify()->error($validator->errors()->first());
+        }
+
 
         $result = Ticket::create([
             'author_id' => $request->user()->id,

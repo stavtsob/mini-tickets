@@ -20,7 +20,11 @@ class EditTicketController extends Controller
         }
 
         $data = $request->all();
-        $this->validator($data)->validate();
+        $validator = $this->validator($data);
+        if($validator->fails())
+        {
+            notify()->error($validator->errors()->first());
+        }
 
         $ticket = Ticket::where(['id'=>$ticket->id])
                         ->update([
@@ -52,7 +56,7 @@ class EditTicketController extends Controller
     {
         return Validator::make($data, [
             'title' => ['required', 'string', 'max:255'],
-            'refers_to' => ['required','max:100'],
+            'refers_to' => ['sometimes','max:100'],
             'telephone' => ['sometimes', 'max:20'],
             'department' => ['sometimes', 'max:100'],
             'description' => ['sometimes', 'string', 'max:1000'],
