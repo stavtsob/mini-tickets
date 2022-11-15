@@ -19,4 +19,9 @@ class TicketComment extends Model
     {
         return User::find($this->user_id);
     }
+
+    public function ticket()
+    {
+        return Ticket::find($this->ticket_id);
+    }
 }

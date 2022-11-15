@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Ticket;
 
+use App\Events\NewComment;
 use App\Http\Controllers\Controller;
 use App\Models\Ticket;
 use App\Models\TicketComment;
@@ -16,13 +17,15 @@ class TicketCommentController extends Controller
         $data = $request->all();
         $this->validateCommentCreation($data);
 
-        TicketComment::create([
+        $comment = TicketComment::create([
             'ticket_id' => $data['ticket_id'],
             'user_id'   => Auth::user()->id,
             'comment'   => $data['comment']
         ]);
 
         $ticket = Ticket::where('id',$data['ticket_id'])->first();
+
+        NewComment::dispatch($comment);
         notify()->success("Comment successfully posted⚡️");
         return redirect()->route('tickets.view', $ticket->code);
     }
