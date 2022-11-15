@@ -25,6 +25,7 @@
 }
 .ticket
 {
+    position: relative;
     text-decoration: none;
     margin-top: 10px;
     color: black;
@@ -355,4 +356,15 @@ a.ticket.closed .ticket-left div:not(.ticket-title) {
     font-size: 11px;
     margin-left: 10px;
     margin-right: 10px;
+}
+.ticket .expires-at
+{
+    position: absolute;
+    background-color: rgb(202, 45, 50);
+    color: white;
+    font-size: 11px;
+    top: -10px;
+    right: 5px;
+    padding: 1px 10px;
+    border-radius: 4px;
 }
