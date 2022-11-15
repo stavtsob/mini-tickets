@@ -24,6 +24,9 @@ class Ticket extends Model
         'deadline'
     ];
 
+    protected $casts = [
+        'deadline'  => 'date'
+    ];
     public function author()
     {
         return User::find($this->author_id);

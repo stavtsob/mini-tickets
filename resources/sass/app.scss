@@ -357,14 +357,71 @@ a.ticket.closed .ticket-left div:not(.ticket-title) {
     margin-left: 10px;
     margin-right: 10px;
 }
+.department-ticket-list
+{
+    width: 22%;
+    min-width: 260px;
+    margin-right: 10px;
+}
+.department-title
+{
+    font-size: 16px;
+}
+.department-title::after
+{
+    content: "";
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 32px;
+    height: 4px;
+}
+.call_center-title::after
+{
+    border-bottom: 6px solid #F94C66;
+}
+.social_services_department-title::after
+{
+    border-bottom: 6px solid #53BF9D;
+
+}
+.it_department-title::after
+{
+    border-bottom: 6px solid #FFC54D;
+
+}
+.pr_communication_media-title::after
+{
+    border-bottom: 6px solid #BD4291;
+
+}
+.closed-tickets
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.closed-tickets .ticket
+{
+    width: 20%;
+    margin-right: 5px;
+}
+.ticket:hover .expires-at
+{
+    opacity: 1;
+    background-color: rgb(202, 45, 50);
+    color: white;
+}
 .ticket .expires-at
 {
     position: absolute;
-    background-color: rgb(202, 45, 50);
-    color: white;
+    border: 1px solid rgb(202, 45, 50);
+    color: rgb(202, 45, 50);
+    font-weight: 700;
     font-size: 11px;
-    top: -10px;
+    top: -15px;
     right: 5px;
     padding: 1px 10px;
     border-radius: 4px;
+    opacity: 0.4;
+    transition-duration: 0.3s;
 }
