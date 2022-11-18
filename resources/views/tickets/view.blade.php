@@ -77,7 +77,7 @@
                                 <select class="form-select" name="status" aria-label="status" class="form-control @error('status') is-invalid @enderror">
                                     <option value=1 {{ $ticket->status == 1 ? 'selected':''}}>{{__('general.opened')}}</option>
                                     <option value=2 {{ $ticket->status == 2 ? 'selected':''}}>{{__('general.in-progress_capital')}}</option>
-                                    <option value=3 {{ $ticket->status == 3 ? 'closed':''}}>{{__('general.closed')}}</option>
+                                    <option value=3 {{ $ticket->status == 3 ? 'selected':''}}>{{__('general.closed')}}</option>
                                   </select>
                                 @error('status')
                                     <span class="invalid-feedback" role="alert">
@@ -131,12 +131,14 @@
                             </div>
                         </div>
                     </form>
+                    @if($ticket->user_id == Auth::user()->id || Auth::user()->id == 2)
                     <form method="POST" action="{{ route('tickets.delete', $ticket->code)}}">
                         @csrf
                         <button type="submit" class="btn btn-danger">
                             {{__('general.delete_ticket')}}
                         </button>
                     </form>
+                    @endif
                 </div>
             </div>
 
@@ -165,7 +167,7 @@
                             <div class="comment-dot"></div><span class="comment-user">{{$comment->user()->name }}</span><span class="comment-content">{{ $comment->comment}}</span>
                         </div>
                         <div class="comment-right">
-                            @if($comment->user_id == Auth::user()->id)
+                            @if($comment->user_id == Auth::user()->id || Auth::user()->id == 2)
                             <div class="dropdown-right comment-options">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-comment-id={{$comment->id}} aria-expanded="false">...</a>
 
