@@ -131,6 +131,15 @@
                             </div>
                         </div>
                     </form>
+                    <form method="POST" enctype="multipart/form-data" action="{{ route('files.tickets.upload', $ticket->code) }}" >
+                        @csrf
+
+                        <input id="name" name="name">
+
+                        <input type="file" name="file">
+
+                        <button type="submit">Submit</button>
+                    </form>
                     @if($ticket->user_id == Auth::user()->id || Auth::user()->id == 2)
                     <form method="POST" action="{{ route('tickets.delete', $ticket->code)}}">
                         @csrf
@@ -139,6 +148,12 @@
                         </button>
                     </form>
                     @endif
+                    @foreach($ticket->getMedia() as $file)
+                        <div style="display:flex;align-items:center;margin-bottom:4px; ">
+                            <img src="{{asset('images/file.png')}}" style="width:16px; height: 16px;filter: invert(0.6);margin-right: 5px">
+                            <a href="{{route('files.download',$file->uuid)}}" target="_blank">Downlaod "{{$file->file_name}}"</a><br>
+                        </div>
+                    @endforeach
                 </div>
             </div>
 

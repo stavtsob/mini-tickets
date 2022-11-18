@@ -15,3 +15,6 @@ yarn-error.log
 /.idea
 /.vscode
 *.code-workspace
+storage/media-library
+public/vendor/livewire
+public/media
