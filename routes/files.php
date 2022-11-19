@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Files\DeleteTicketFileController;
 use App\Http\Controllers\Files\DownloadFileController;
-use App\Http\Controllers\Files\DownloadTicketFileController;
 use App\Http\Controllers\Files\UploadTicketFileController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +19,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/upload/ticket/{ticketCode}', [UploadTicketFileController::class, 'index'])->name('files.tickets.upload');
 Route::get('/download/{fileUuid}', [DownloadFileController::class, 'download'])->name('files.download');
+Route::post('/delete/{fileUuid}', [DeleteTicketFileController::class, 'delete'])->name('files.delete');
 

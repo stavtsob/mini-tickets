@@ -91,4 +91,5 @@
         </main>
     </div>
 </body>
+@stack('js')
 </html>

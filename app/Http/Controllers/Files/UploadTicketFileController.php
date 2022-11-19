@@ -17,6 +17,6 @@ class UploadTicketFileController extends Controller
         }
 
         $ticket->addMediaFromRequest('file')->toMediaCollection();
-
+        return redirect()->route('tickets.view',$ticketCode);
     }
 }
