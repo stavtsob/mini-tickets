@@ -49,26 +49,24 @@
                                 <div class="row mb-3">
                                     <label for="department" class="col-md-4 col-form-label text-md-end">{{__('general.department')}}</label>
 
-                                    <div class="col-md-7">
-                                        <input id="department" type="text" class="form-control @error('department') is-invalid @enderror" name="department" value="{{ old('department') ?? $ticket->department }}"  autocomplete="ticket-department">
-                            <div class="col-md-6">
-                                <select class="form-select" name="department" aria-label="department" class="form-control @error('department') is-invalid @enderror">
-                                    @foreach ($departments as $department)
-                                        @if($ticket->department == $department->code)
-                                            <option value="{{ $department->code }}" selected>{{ $department->title }}</option>
-                                        @else
-                                            <option value="{{ $department->code }}">{{ $department->title }}</option>
-                                        @endif
-                                    @endforeach
-                                </select>
+                                <div class="col-md-6">
+                                    <select class="form-select" name="department" aria-label="department" class="form-control @error('department') is-invalid @enderror">
+                                        @foreach ($departments as $department)
+                                            @if($ticket->department == $department->code)
+                                                <option value="{{ $department->code }}" selected>{{ $department->title }}</option>
+                                            @else
+                                                <option value="{{ $department->code }}">{{ $department->title }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
 
-                                        @error('department')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                            @error('department')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
+                                            @enderror
+                                        </div>
                                     </div>
-                                </div>
                                 <div class="row mb-3">
                                     <label for="telephone" class="col-md-4 col-form-label text-md-end">{{__('general.telephone')}}</label>
 
@@ -84,12 +82,13 @@
                                 </div>
                                 <div class="row mb-3">
                                     <label for="status" class="col-md-4 col-form-label text-md-end">{{__('general.status')}}</label>
-
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                         <select class="form-select" name="status" aria-label="status" class="form-control @error('status') is-invalid @enderror">
                                             <option value=1 {{ $ticket->status == 1 ? 'selected':''}}>{{__('general.opened')}}</option>
                                             <option value=2 {{ $ticket->status == 2 ? 'selected':''}}>{{__('general.in-progress_capital')}}</option>
-                                            <option value=3 {{ $ticket->status == 3 ? 'selected':''}}>{{__('general.closed')}}</option>
+                                            @if (Auth::user()->role == 2)
+                                                <option value=3 {{ $ticket->status == 3 ? 'selected':''}}>{{__('general.closed')}}</option>
+                                            @endif
                                         </select>
                                         @error('status')
                                             <span class="invalid-feedback" role="alert">
@@ -100,24 +99,6 @@
                                 </div>
                                 <div class="row mb-3">
                                     <label for="priority" class="col-md-4 col-form-label text-md-end">{{__('general.priority')}}</label>
-                            <div class="col-md-6">
-                                <select class="form-select" name="status" aria-label="status" class="form-control @error('status') is-invalid @enderror">
-                                    <option value=1 {{ $ticket->status == 1 ? 'selected':''}}>{{__('general.opened')}}</option>
-                                    <option value=2 {{ $ticket->status == 2 ? 'selected':''}}>{{__('general.in-progress_capital')}}</option>
-                                    @if (Auth::user()->role == 2)
-                                        <option value=3 {{ $ticket->status == 3 ? 'selected':''}}>{{__('general.closed')}}</option>
-                                    @endif
-                                  </select>
-                                @error('status')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="priority" class="col-md-4 col-form-label text-md-end">{{__('general.priority')}}</label>
-
                                     <div class="col-md-7">
                                         <input type="range" class="form-range" id="priority" name="priority" min="0" max="5" value="{{ $ticket->priority }}">
                                         @error('priority')
