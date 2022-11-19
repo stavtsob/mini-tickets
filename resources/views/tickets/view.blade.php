@@ -133,7 +133,7 @@
                                     </div>
                                 </div>
                             </form>
-                            @if($ticket->user_id == Auth::user()->id || Auth::user()->id == 2)
+                            @if($ticket->author_id == Auth::user()->id || Auth::user()->id == 2)
                             <form method="POST" action="{{ route('tickets.delete', $ticket->code)}}">
                                 @csrf
                                 <button type="submit" class="btn btn-danger">

@@ -18,3 +18,4 @@ yarn-error.log
 storage/media-library
 public/vendor/livewire
 public/media
+public/images/media
