@@ -17,12 +17,10 @@ class DeleteTicketFileController extends Controller
         {
             abort('file not found');
         }
-
         $ticket = Ticket::where('id',$file->model_id)->first();
-        if($ticket && ($ticket->author_id == Auth::user()->id || Auth::user()->id == 2))
-        {
-            $file->delete();
-        }
+
+        $file->delete();
+
         return redirect()->route('tickets.view',$ticket->code);
     }
 }
