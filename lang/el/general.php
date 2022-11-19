@@ -34,5 +34,8 @@ return [
     "write_your_comment_here" => "Γράψτε το σχόλιο σας εδώ...",
     "delete"            => 'Διαγραφή',
     "deadline"          => 'Προθεσμία',
-    'expires_at'    => 'Λήγει στις '
+    'expires_at'    => 'Λήγει στις ',
+    'attachments'   => 'Επισυναπτόμενα',
+    'click_to_upload'=> 'Επιλέξτε αρχεία για ανέβασμα',
+    'upload'    => 'Ανέβασμα'
 ];

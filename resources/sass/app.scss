@@ -171,6 +171,7 @@
 {
     width: 100%;
     margin-top: 30px;
+    position: relative;
 }
 .user-comments
 {
@@ -179,8 +180,8 @@
     width: 100%;
 }
 .comment {
-    width: 80%;
-    min-width: 320px;
+    width: 70%;
+    min-width: 280px;
     box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
     border-radius: 8px;
     padding: 20px 30px;
@@ -195,7 +196,7 @@
 }
 .comment.mine
 {
-    margin-left: 80px;
+    float: right;
     background-color: #fcfcfc;
     color: gray;
     margin-top: 15px;
@@ -427,4 +428,65 @@ a.ticket.closed .ticket-left div:not(.ticket-title) {
     border-radius: 4px;
     opacity: 0.4;
     transition-duration: 0.3s;
+}
+.ticket-files
+{
+    width: 30%;
+    min-width: 180px;
+}
+.input-file-box
+{
+    padding: 10px;
+    border: 4px dashed lightgray;
+    border-radius: 4px;
+    color: gray;
+    width: 100%;
+    cursor: pointer;
+}
+.input-file-box:hover
+{
+    border: 4px dashed gray;
+    color: black;
+}
+.upload-btn
+{
+    background-color: rgb(0, 119, 255);
+    width: 100%;
+    border-radius: 4px;
+    color:white;
+    margin-top:4px;
+    margin-bottom:20px;
+}
+.upload-btn:hover
+{
+    opacity: 0.8;
+}
+.uploaded-files
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.uploaded-img
+{
+    display:flex;
+    align-items:center;
+    margin-bottom:4px;
+    position: relative;
+    margin-right:20px;
+}
+.delete-attachment
+{
+    margin-left:5px;
+    font-size:11px;
+    width: 20px;
+    height:20px;
+    border-radius:5px;
+    background:rgba(244, 94, 80, 0.792);
+    color:white;
+}
+.delete-attachment-form
+{
+    position:absolute;
+    top:-15px;
+    right:-15px;
 }
