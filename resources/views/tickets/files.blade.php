@@ -10,6 +10,15 @@
     <br>
     <button type="submit" id='file-upload-btn' class="upload-btn">{{__('general.upload')}}</button>
 </form>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 @php $imageExtensions = ['png','jpg','jpeg','svg','gif']; @endphp
     <div class="uploaded-files">
         <!-- VIEW UPLOADED IMAGES -->

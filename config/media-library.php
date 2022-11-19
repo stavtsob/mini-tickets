@@ -12,7 +12,7 @@ return [
      * The maximum file size of an item in bytes.
      * Adding a larger file will result in an exception.
      */
-    'max_file_size' => 1024 * 1024 * 10, // 10MB
+    'max_file_size' => 1024 * 1024 * 20, // 10MB
 
     /*
      * This queue will be used to generate derived and responsive images.
@@ -219,4 +219,28 @@ return [
      * If you set this to `/my-subdir`, all your media will be stored in a `/my-subdir` directory.
      */
     'prefix' => env('MEDIA_PREFIX', ''),
+
+    'allowed-mime-types' => [
+        "image/png",
+        "image/jpg",
+        "image/gif",
+        "image/jpeg",
+
+        "application/pdf",
+        //"text/plain",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/vnd.ms-excel",
+        "application/vnd.oasis.opendocument.presentation",
+        "application/vnd.oasis.opendocument.spreadsheet",
+        "application/vnd.oasis.opendocument.text",
+
+        "video/mp4",
+        "video/mpeg",
+
+
+        "application/x-7z-compressed",
+        "application/vnd.rar",
+        "application/zip"
+   ],
 ];
