@@ -58,7 +58,7 @@ return [
         'media' => [
             'driver' => 'local',
             'root'   => public_path('images/media'),
-            'url'    => env('APP_URL').'public/media',
+            'url'    => env('APP_URL').'/public/images/media',
         ],
 
     ],
