@@ -20,6 +20,16 @@ Feel free to fork the project and contribute to it.
 - Tickets filtering by status
 - Search in tickets by full text
 
+## Changelog
+### 19-11-2022 
+- Added file attachments to tickets
+- Minor fixes
+### 15-11-2022
+- Added activity log
+- Tickets now change to "In Progress" when someone posts a comment
+### 12-11-2022
+- Introduced a new ticket field "Deadline"
+
 ## Authors
 
 - [@stavtsob](https://www.github.com/stavtsob)
