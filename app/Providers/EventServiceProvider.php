@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Events\Listeners\Notifications\NewCommentNotification;
 use App\Events\Listeners\SetTicketInProgress;
 use App\Events\NewComment;
 use Illuminate\Auth\Events\Registered;
@@ -21,7 +22,8 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
         NewComment::class => [
-            SetTicketInProgress::class
+            SetTicketInProgress::class,
+            NewCommentNotification::class
         ]
     ];
 

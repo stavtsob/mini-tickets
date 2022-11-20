@@ -174,7 +174,7 @@
                         </div>
                     </form>
                     @foreach ($ticket->comments() as $comment)
-                    <div class="comment {{ $comment->user_id == Auth::user()->id ? 'mine':''}}">
+                    <div class="comment {{ $comment->user_id == Auth::user()->id ? 'mine':''}}" id="comment-{{$comment->id}}">
                         <span class="posted-at">{{__('general.posted_at')}} {{ $comment->created_at->format('H:i d M Y') }}</span>
                         <div class="comment-left">
                             <div class="comment-dot"></div><span class="comment-user">{{$comment->user()->name }}</span><span class="comment-content">{{ $comment->comment}}</span>

@@ -34,5 +34,13 @@ return [
     "write_your_comment_here" => "Write your comment here...",
     "delete"            => 'Delete',
     "deadline"          => 'Deadline',
-    'expires_at'    => 'Expires at '
+    'expires_at'    => 'Expires at ',
+    'attachments'   => 'Attachments',
+    'click_to_upload'=> 'Select a file to upload',
+    'upload'    => 'Upload',
+    'new_comment_notification'  => 'New comment on ticket #:code from user ":user_name"',
+    'notifications_heading' => 'Notifications',
+    'diff_in_minutes'   => ':diff minutes ago',
+    'diff_in_hours'   => ':diff hours ago',
+    'diff_in_days'   => ':diff days ago',
 ];

@@ -37,5 +37,10 @@ return [
     'expires_at'    => 'Λήγει στις ',
     'attachments'   => 'Επισυναπτόμενα',
     'click_to_upload'=> 'Επιλέξτε αρχεία για ανέβασμα',
-    'upload'    => 'Ανέβασμα'
+    'upload'    => 'Ανέβασμα',
+    'new_comment_notification'  => 'Νέο σχόλιο στο ticket :code από τον χρήστη ":user_name"',
+    'notifications_heading' => 'Ειδοποιήσεις',
+    'diff_in_minutes'   => ':diff λεπτά πριν',
+    'diff_in_hours'   => ':diff ώρες πριν',
+    'diff_in_days'   => ':diff μέρες πριν',
 ];
