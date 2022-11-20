@@ -25,7 +25,7 @@ class TicketCommentController extends Controller
 
         $ticket = Ticket::where('id',$data['ticket_id'])->first();
 
-        NewComment::dispatch($comment);
+        NewComment::dispatch($comment, $ticket);
         notify()->success("Comment successfully posted⚡️");
         return redirect()->route('tickets.view', $ticket->code);
     }

@@ -24,10 +24,12 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img style="height:64px" src="{{ URL('/images/'.config('app.logo'))}}" alt="{{ config('app.name', 'Laravel') }}">
                 </a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                @include('layouts.notifications')
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
@@ -35,6 +37,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -92,4 +95,5 @@
     </div>
 </body>
 @stack('js')
+@stack('css')
 </html>

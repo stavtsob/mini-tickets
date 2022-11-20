@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Ticket;
 use App\Models\TicketComment;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -15,15 +16,16 @@ class NewComment
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $comment;
+    public $comment, $ticket;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(TicketComment $comment)
+    public function __construct(TicketComment $comment, Ticket $ticket)
     {
         $this->comment = $comment;
+        $this->ticket = $ticket;
     }
 
 }

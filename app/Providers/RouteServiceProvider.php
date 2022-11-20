@@ -45,6 +45,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware(['web','auth'])
                 ->group(base_path('routes/files.php'));
 
+                Route::prefix('notifications')
+                ->middleware(['web','auth'])
+                ->group(base_path('routes/notifications.php'));
+
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
