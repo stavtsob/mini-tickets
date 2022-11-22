@@ -28,11 +28,7 @@
                     <a href="{{$file->getUrl()}}" target="_blank">
                         <img src="{{$file->getUrl()}}" style="width:80px;height:auto;border:1px solid gray;">
                     </a>
-                    <form class="delete-attachment-form" action="{{route('files.delete', $file->uuid)}}" method="POST">
-                        @csrf
-                        <input type="hidden" name="uuid" value="{{$file->uuid}}">
-                        <input type="submit"  class="delete-attachment" value="X" required>
-                    </form>
+                    @include('tickets.components.delete_attachment_modal')
                 @endif
             </div>
         @endforeach
@@ -42,11 +38,7 @@
                 @if(!in_array($file->extension,$imageExtensions))
                     <img src="{{asset('images/file.png')}}" style="width:16px; height: 16px;filter: invert(0.6);margin-right: 5px">
                     <a href="{{route('files.download',$file->uuid)}}" target="_blank">"{{$file->file_name}}"</a><br>
-                    <form class="delete-attachment-form" action="{{route('files.delete',$file->uuid)}}" method="POST">
-                        @csrf
-                        <input type="hidden" name="uuid" value="{{$file->uuid}}">
-                        <input type="submit"  class="delete-attachment" value="X" required>
-                    </form>
+                    @include('tickets.components.delete_attachment_modal')
                 @endif
             </div>
         @endforeach

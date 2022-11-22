@@ -43,4 +43,8 @@ return [
     'diff_in_minutes'   => ':diff λεπτά πριν',
     'diff_in_hours'   => ':diff ώρες πριν',
     'diff_in_days'   => ':diff μέρες πριν',
+    'close'     => 'Κλείσιμο',
+    'delete_media_confirm'  => 'Θέλετε σίγουρα να διαγράψετε το αρχείο :file ?',
+    'delete'    => 'Διαγραφή',
+    'delete_media'  => 'Διαγραφή αρχείου'
 ];

@@ -43,4 +43,8 @@ return [
     'diff_in_minutes'   => ':diff minutes ago',
     'diff_in_hours'   => ':diff hours ago',
     'diff_in_days'   => ':diff days ago',
+    'close'     => 'Close',
+    'delete_media_confirm'  => "Are you sure you want to delete :file ?",
+    'delete'    => 'Delete',
+    'delete_media'  => 'Delete file'
 ];

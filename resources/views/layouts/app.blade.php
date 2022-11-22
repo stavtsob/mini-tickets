@@ -89,6 +89,7 @@
 
             @yield('content')
             <x:notify-messages />
+            @stack('modals')
         </main>
     </div>
 </body>
