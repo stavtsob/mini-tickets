@@ -4,6 +4,8 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+
+
 .create-new-ticket-btn
 {
     color: gray;
@@ -231,7 +233,7 @@
     background-color: white;
     width: 70%;
     margin-right: 10px;
-
+    min-width: 300px;
 }
 .post-comment
 {
@@ -239,6 +241,7 @@
     margin-left: 20px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .comments-count {

@@ -134,12 +134,7 @@
                                 </div>
                             </form>
                             @if($ticket->author_id == Auth::user()->id || Auth::user()->id == 2)
-                            <form method="POST" action="{{ route('tickets.delete', $ticket->code)}}">
-                                @csrf
-                                <button type="submit" class="btn btn-danger">
-                                    {{__('general.delete_ticket')}}
-                                </button>
-                            </form>
+                                @include('tickets.components.delete_ticket_modal', $ticket)
                             @endif
                         </div>
                         @include('tickets.files',$ticket)
