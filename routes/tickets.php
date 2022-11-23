@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/reports', [App\Http\Controllers\TicketReportController::class, 'index'])->name('tickets.report');
 
 Route::get('/create', [App\Http\Controllers\Ticket\CreateTicketController::class, 'index'])->name('tickets.create_page');
 Route::post('/create', [App\Http\Controllers\Ticket\CreateTicketController::class, 'create'])->name('tickets.create');
@@ -22,5 +23,6 @@ Route::post('/delete/{ticketCode}', [App\Http\Controllers\Ticket\EditTicketContr
 Route::post('/search', [App\Http\Controllers\Ticket\SearchTicketController::class, 'search'])->name('tickets.search');
 Route::post('/comment', [App\Http\Controllers\Ticket\TicketCommentController::class, 'create'])->name('tickets.comments.create');
 Route::get('/comment/{commentId}/delete', [App\Http\Controllers\Ticket\TicketCommentController::class, 'delete'])->name('tickets.comments.delete');
+
 
 

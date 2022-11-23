@@ -429,6 +429,18 @@ a.ticket.closed .ticket-left div:not(.ticket-title) {
     opacity: 0.4;
     transition-duration: 0.3s;
 }
+.ticket.short
+{
+    padding: 10px 40px;
+}
+.ticket.short .ticket-title
+{
+    font-size: 18px;
+}
+.ticket.short *
+{
+    font-size: 12px;
+}
 .ticket-files
 {
     width: 30%;
@@ -489,4 +501,11 @@ a.ticket.closed .ticket-left div:not(.ticket-title) {
     position:absolute;
     top:-15px;
     right:-15px;
+}
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
 }

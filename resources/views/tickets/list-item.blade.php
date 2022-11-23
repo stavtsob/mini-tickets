@@ -8,7 +8,7 @@
         <div class="ticket-field"><b>{{__('general.refers_to')}}: </b>{{$ticket['refers_to']}}</div>
         <div class="ticket-field"><b>{{__('general.department')}}: </b>{{$ticket['department']}}</div>
         <div class="ticket-field"><b>{{__('general.author')}}: </b>{!! $ticket->author()->name ?? '<i>Deprecated user</i>'!!}</div>
-        <div class="ticket-field"><b>{{__('general.status')}}: </b><span class="status
+        <div class="ticket-field no-print"><b>{{__('general.status')}}: </b><span class="status
             <?php
                 switch($ticket['status'])
                 {
@@ -40,7 +40,7 @@
             </span>
         </div>
     </div>
-    <div class="ticket-right">
+    <div class="ticket-right no-print">
         <div class="ticket-priority-bar" >
             <div class="ticket-field " style="width: 100%">{{__('general.priority')}}</div>
             <?php for($i=0;$i<$ticket['priority'];$i++)
