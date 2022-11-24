@@ -6,7 +6,7 @@
         <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        {{__('general.ticket_details')}} <span style="font-color:gray;font-size:11px;margin-left:10px;">[ {{__('general.created_at')}} {{$ticket->created_at->format('H:i d M Y')}} ]</span>
+                        {{__('general.ticket_details')}} <span style="font-color:gray;font-size:11px;margin-left:10px;">[{!! $ticket->author()->name ?? '<i>Deprecated user</i>'!!} {{__('general.created_at')}} {{$ticket->created_at->format('H:i d M Y')}} ]</span>
                     </div>
                 <div class="card-body">
                     <div style="display: flex; flex-wrap:wrap;">

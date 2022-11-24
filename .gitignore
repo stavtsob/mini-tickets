@@ -19,3 +19,4 @@ storage/media-library
 public/vendor/livewire
 public/media
 public/images/media
+composer.lock
