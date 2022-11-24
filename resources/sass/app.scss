@@ -429,6 +429,28 @@ a.ticket.closed .ticket-left div:not(.ticket-title) {
     opacity: 0.4;
     transition-duration: 0.3s;
 }
+.ticket.short
+{
+    padding: 10px 40px;
+}
+.ticket.short .ticket-title {
+    line-height: 18px;
+    font-size: 16px;
+    margin-bottom: 2px;
+}
+.ticket.short .ticket-field
+{
+    font-size: 11px;
+    line-height: 12px;
+}
+a.ticket.short {
+    margin-top: 0px!important;
+    border: 2px solid gray;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px;
+}
 .ticket-files
 {
     width: 30%;
@@ -489,4 +511,11 @@ a.ticket.closed .ticket-left div:not(.ticket-title) {
     position:absolute;
     top:-15px;
     right:-15px;
+}
+@media print
+{
+    .no-print, .no-print *
+    {
+        display: none !important;
+    }
 }

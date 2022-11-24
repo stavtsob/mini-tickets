@@ -17,7 +17,7 @@
 <body>
 
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm no-print">
             <div class="container">
                 <a class="navbar-brand" style="flex-shrink:0" href="{{ url('/') }}">
                     <img style="height:64px" src="{{ URL('/images/'.config('app.logo'))}}" alt="{{ config('app.name', 'Laravel') }}">
@@ -67,6 +67,9 @@
                                     @endif
                                     <a class="dropdown-item" href="{{ route('users.list') }}">
                                         {{ __('Users List') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('tickets.report') }}">
+                                        {{ __('Reports') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
