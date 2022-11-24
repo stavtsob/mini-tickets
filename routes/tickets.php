@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/reports', [App\Http\Controllers\TicketReportController::class, 'index'])->name('tickets.report');
+Route::get('/reports', [App\Http\Controllers\Ticket\TicketReportController::class, 'index'])->name('tickets.report');
 
 Route::get('/create', [App\Http\Controllers\Ticket\CreateTicketController::class, 'index'])->name('tickets.create_page');
 Route::post('/create', [App\Http\Controllers\Ticket\CreateTicketController::class, 'create'])->name('tickets.create');
