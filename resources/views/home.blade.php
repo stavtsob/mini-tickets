@@ -29,6 +29,14 @@
                         tickets <b>{{__('general.total')}}</b>.
                     </div>
                 </a>
+                <a href="?status_filter=3"  class="stats-item {{ $statusFilter == 3 ? 'selected':''}}">
+                    <div class="stat-number">
+                        {{$closedTickets}}
+                    </div>
+                    <div>
+                        tickets <b style="color:rgb(205, 76, 76);">{{__('general.closed_small')}}</b>.
+                    </div>
+                </a>
             </div>
             <div class="card">
                 <div class="card-header">{{__('general.dashboard')}}</div>
