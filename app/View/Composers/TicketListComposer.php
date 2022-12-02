@@ -26,7 +26,7 @@ class TicketListComposer
         // Ticket counts by status
         $openTickets = Ticket::where(['status' => 1])->count();
         $inProgressTickets = Ticket::where(['status' => 2])->count();
-        $closedTickets = Ticket::where('status', '=', 3)->orderBy('created_at', 'DESC')->get();
+        $closedTickets = Ticket::where(['status' => 3])->count();
 
         // Filter tickets
         $statusFilter = $this->request->query('status_filter', 0);
@@ -36,17 +36,8 @@ class TicketListComposer
         $ticketsByDepartment = [];
         foreach($departments as $department)
         {
-            $tickets = Ticket::where('status', '<', 3);
-            $tickets = $statusFilter == 0 ? $tickets : $tickets->where('status', $statusFilter);
+            $tickets = $statusFilter == 0 ? Ticket::where('status', '<', 3) : Ticket::where('status', $statusFilter);
             $ticketsByDepartment[$department->code] = $tickets->where('department', $department->code)->orderBy('priority', 'DESC')->get();
-        }
-
-        // Collect Closed Tickets
-        $closedTickets = [];
-        foreach($departments as $department)
-        {
-            $tickets = Ticket::where('status', '=', 3);
-            $closedTickets[$department->code] = $tickets->where('department', $department->code)->orderBy('created_at', 'DESC')->get();
         }
 
 
