@@ -46,5 +46,6 @@ return [
     'close'     => 'Close',
     'delete_media_confirm'  => "Are you sure you want to delete :file ?",
     'delete'    => 'Delete',
-    'delete_media'  => 'Delete file'
+    'delete_media'  => 'Delete file',
+    'closed_small'  => 'closed'
 ];
