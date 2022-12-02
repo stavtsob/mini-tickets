@@ -47,6 +47,7 @@ return [
     'delete_media_confirm'  => "Are you sure you want to delete :file ?",
     'delete'    => 'Delete',
     'delete_media'  => 'Delete file',
+    'closed_small'  => 'closed',
     'from_date'     => 'From',
     'to_date'       => 'To'
 ];

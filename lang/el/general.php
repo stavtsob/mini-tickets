@@ -47,6 +47,7 @@ return [
     'delete_media_confirm'  => 'Θέλετε σίγουρα να διαγράψετε το αρχείο :file ?',
     'delete'    => 'Διαγραφή',
     'delete_media'  => 'Διαγραφή αρχείου',
+    'closed_small'  => 'κλειστά',
     'from_date'     => 'Από',
     'to_date'       => 'Μέχρι'
 ];
