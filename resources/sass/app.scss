@@ -34,8 +34,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    padding: 10px 30px;
-    border: 4px solid #f4f4f4;
+    padding: 5px 30px;
+    border: 3px solid #f4f4f4;
     border-radius: 10px;
     cursor: pointer;
     background-color: white;
@@ -51,14 +51,16 @@
 }
 .ticket-title
 {
-    font-size: 24px;
+    font-size: 22px;
+    line-height: 22px;
     font-weight: 700;
     width: 100%;
 }
 .ticket-field
 {
-    font-size: 14px;
+    font-size: 12px;
     color: gray;
+    line-height: 13px;
 }
 .ticket-left
 {
