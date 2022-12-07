@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Ticket;
 
 use App\Enums\UserActivityType;
+use App\Events\CloseTicketEvent;
+use App\Events\UpdateTicketEvent;
 use App\Http\Controllers\Controller;
 use App\Jobs\UserActivity\LogUserActivityJob;
 use App\Models\Ticket;
@@ -26,7 +28,7 @@ class EditTicketController extends Controller
             notify()->error($validator->errors()->first());
         }
 
-        $ticket = Ticket::where(['id'=>$ticket->id])
+        $result = Ticket::where(['id'=>$ticket->id])
                         ->update([
                             'title' => $data['title'],
                             'refers_to' => $data['refers_to'],
@@ -37,28 +39,12 @@ class EditTicketController extends Controller
                             'telephone' => $data['telephone'],
                             'deadline'  => $data['deadline']
                         ]);
-        $this->dispatch(new LogUserActivityJob($request->user(), UserActivityType::LOG, "Edited ticket \"$ticketCode : $data[title]\""));
-        notify()->success("Successfully updated ticket " . $ticketCode ." ⚡️");
+
+        // Dispatch events
+        UpdateTicketEvent::dispatch($ticket);
+        if($data['status'] == 3) CloseTicketEvent::dispatch($ticket);
 
         return redirect()->route('tickets.view', $ticketCode);
-    }
-
-    function delete(Request $request, $ticketCode)
-    {
-        // Retrieve Ticket
-        $ticket = Ticket::where(['code'=>$ticketCode])->first();
-        // Delete Ticket associated files
-        foreach($ticket->getMedia() as $file)
-        {
-            $file->delete();
-        }
-        // Delete ticket
-        $ticket->delete();
-        // Log and send popup notification to the user
-        $this->dispatch(new LogUserActivityJob($request->user(), UserActivityType::WARNING, "Deleted ticket \"$ticketCode\""));
-        notify()->success("Successfully deleted ticket " . $ticketCode ." ⚡️");
-
-        return redirect()->route('home');
     }
 
     protected function validator(array $data)
