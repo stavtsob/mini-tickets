@@ -240,7 +240,7 @@
     width: 90%;
     margin-left: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
 }
 
@@ -489,4 +489,20 @@ a.ticket.closed .ticket-left div:not(.ticket-title) {
     position:absolute;
     top:-15px;
     right:-15px;
+}
+.user-suggestion {
+    border-bottom: 1px solid lightgray;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+div#userlist-tag {
+    display: none;
+    width: 70%;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+.user-suggestion:hover
+{
+    background-color: #0d6efd;
+    color: white;
 }

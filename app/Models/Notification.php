@@ -19,6 +19,6 @@ class Notification extends Model
 
     public function authorName()
     {
-        return User::where('id',$this->author_id)->first() ?? 'System';
+        return User::where('id',$this->author_id)->first()->name ?? 'System';
     }
 }
