@@ -15,12 +15,8 @@ class SearchTicketController extends Controller
         {
             abort(403);
         }
-        $searchParam = $data['code'];
-        $tickets = Ticket::search($searchParam)->get();
 
-        return view('tickets.search_results',[
-            'tickets'   => $tickets,
-            'search_param'  => $searchParam
-        ]);
+
+        return view('tickets.search_results');
     }
 }
