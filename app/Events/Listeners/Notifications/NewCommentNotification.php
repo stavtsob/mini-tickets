@@ -44,5 +44,7 @@ class NewCommentNotification
             ];
             $this->dispatch(new CreateNotificationJob($receiverId, __('general.new_comment_notification',$translationVars), route('tickets.view',$ticket->code).'#comment-'.$comment->id));
         }
+
+        notify()->success("Comment successfully posted⚡️");
     }
 }

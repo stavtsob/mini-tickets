@@ -2,9 +2,13 @@
 
 namespace App\Providers;
 
+use App\Events\CloseTicketEvent;
 use App\Events\Listeners\Notifications\NewCommentNotification;
 use App\Events\Listeners\SetTicketInProgress;
+use App\Events\Listeners\Tickets\CloseTicketEventListener;
+use App\Events\Listeners\Tickets\UpdateTicketEventListener;
 use App\Events\NewComment;
+use App\Events\UpdateTicketEvent;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -24,6 +28,13 @@ class EventServiceProvider extends ServiceProvider
         NewComment::class => [
             SetTicketInProgress::class,
             NewCommentNotification::class
+        ],
+        UpdateTicketEvent::class => [
+            UpdateTicketEventListener::class,
+        ],
+        CloseTicketEvent::class => [
+            UpdateTicketEventListener::class,
+            CloseTicketEventListener::class
         ]
     ];
 

@@ -19,7 +19,7 @@ Route::get('/create', [App\Http\Controllers\Ticket\CreateTicketController::class
 Route::post('/create', [App\Http\Controllers\Ticket\CreateTicketController::class, 'create'])->name('tickets.create');
 Route::get('/{ticketCode}', [App\Http\Controllers\Ticket\ViewTicketController::class, 'index'])->name('tickets.view');
 Route::post('/edit/{ticketCode}', [App\Http\Controllers\Ticket\EditTicketController::class, 'update'])->name('tickets.update');
-Route::post('/delete/{ticketCode}', [App\Http\Controllers\Ticket\EditTicketController::class, 'delete'])->name('tickets.delete');
+Route::post('/delete/{ticketCode}', [App\Http\Controllers\Ticket\DeleteTicketController::class, 'delete'])->name('tickets.delete');
 Route::post('/search', [App\Http\Controllers\Ticket\SearchTicketController::class, 'search'])->name('tickets.search');
 Route::post('/comment', [App\Http\Controllers\Ticket\TicketCommentController::class, 'create'])->name('tickets.comments.create');
 Route::get('/comment/{commentId}/delete', [App\Http\Controllers\Ticket\TicketCommentController::class, 'delete'])->name('tickets.comments.delete');

@@ -195,6 +195,10 @@
     font-weight: 400;
     border-top-left-radius: 0px;
 }
+.comment:not(.mine) a
+{
+    color: white;
+}
 .comment.mine
 {
     float: right;
