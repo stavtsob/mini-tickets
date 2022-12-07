@@ -46,6 +46,6 @@ class User extends Authenticatable
 
     public function activities()
     {
-        return $this->hasMany(UserActivity::class);
+        return $this->hasMany(UserActivity::class)->orderBy('created_at', 'DESC');
     }
 }
