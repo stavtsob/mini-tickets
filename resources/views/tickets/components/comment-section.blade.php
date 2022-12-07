@@ -44,7 +44,7 @@
 <script>
     setTimeout(() => {
         let userListElement = $('#userlist-tag');
-        let users = @php echo json_encode(App\Models\User::all(['id','name','username'])->orderBy('name')->toArray()); @endphp ;
+        let users = @php echo json_encode(App\Models\User::orderBy('name')->get(['id','name','username'])->toArray()); @endphp ;
 
         users.forEach(function(user){
             userListElement.append('<div class="user-suggestion" data-username="'+user['username']+'">' + user['username'] + ' - ' + user['name'] + '</div>');
