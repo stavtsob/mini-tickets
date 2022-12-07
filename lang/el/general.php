@@ -47,5 +47,7 @@ return [
     'delete_media_confirm'  => 'Θέλετε σίγουρα να διαγράψετε το αρχείο :file ?',
     'delete'    => 'Διαγραφή',
     'delete_media'  => 'Διαγραφή αρχείου',
-    'closed_small'  => 'κλειστά'
+    'closed_small'  => 'κλειστά',
+    'username_reference_to' => 'Το όνομα σας αναφέρθηκε στο ticket με κωδικό #:code',
+
 ];

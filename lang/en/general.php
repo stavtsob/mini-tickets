@@ -47,5 +47,7 @@ return [
     'delete_media_confirm'  => "Are you sure you want to delete :file ?",
     'delete'    => 'Delete',
     'delete_media'  => 'Delete file',
-    'closed_small'  => 'closed'
+    'closed_small'  => 'closed',
+    'username_reference_to' => 'You have been referenced to ticket #:code',
+
 ];
