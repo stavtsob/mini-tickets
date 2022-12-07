@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Ticket;
 
 use App\Events\NewComment;
 use App\Http\Controllers\Controller;
+use App\Jobs\Notification\CreateNotificationJob;
 use App\Models\Ticket;
 use App\Models\TicketComment;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -17,10 +19,13 @@ class TicketCommentController extends Controller
         $data = $request->all();
         $this->validateCommentCreation($data);
 
+        $ticket = Ticket::where('id',$data['ticket_id'])->first();
+        $commentBody = $this->replaceUsernames($data['comment'], $ticket->code);
+
         $comment = TicketComment::create([
-            'ticket_id' => $data['ticket_id'],
+            'ticket_id' => $ticket->id,
             'user_id'   => Auth::user()->id,
-            'comment'   => $data['comment']
+            'comment'   => $commentBody
         ]);
 
         $ticket = Ticket::where('id',$data['ticket_id'])->first();
@@ -56,4 +61,24 @@ class TicketCommentController extends Controller
         notify()->info("Comment was deleted!⚡️");
         return redirect()->route('tickets.view', $ticket->code);
     }
+
+    protected function replaceUsernames($body, $ticketCode)
+    {
+        preg_match_all('/@(\w+)/', $body, $users);
+        if (!isSet($users[1])) {
+            return $body;
+        }
+        $userList = User::whereIn('username', $users[1])->get()->unique();
+        foreach ($userList as $user) {
+            $replace = $user->username;
+            $replace = $user->id;
+
+            $body = str_replace('@' . $user->username,
+                '<a href="/users/profile/' . $replace . '">@' . $user->username . '</a>', $body);
+
+            $this->dispatch(new CreateNotificationJob($user->id, __('general.username_reference_to', ['code'=>$ticketCode]), route('tickets.view', $ticketCode), Auth::user()->id));
+        }
+        return $body;
+    }
+
 }

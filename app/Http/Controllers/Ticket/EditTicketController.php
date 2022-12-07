@@ -41,10 +41,19 @@ class EditTicketController extends Controller
 
     function delete(Request $request, $ticketCode)
     {
-        $ticket = Ticket::where(['code'=>$ticketCode])->first()->delete();
+        // Retrieve Ticket
+        $ticket = Ticket::where(['code'=>$ticketCode])->first();
+        // Delete Ticket associated files
+        foreach($ticket->getMedia() as $file)
+        {
+            $file->delete();
+        }
+        // Delete ticket
+        $ticket->delete();
+        // Log and send popup notification to the user
         $this->dispatch(new LogUserActivityJob($request->user(), UserActivityType::WARNING, "Deleted ticket \"$ticketCode\""));
-
         notify()->success("Successfully deleted ticket " . $ticketCode ." ⚡️");
+
         return redirect()->route('home');
     }
 

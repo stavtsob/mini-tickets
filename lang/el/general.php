@@ -48,6 +48,7 @@ return [
     'delete'    => 'Διαγραφή',
     'delete_media'  => 'Διαγραφή αρχείου',
     'closed_small'  => 'κλειστά',
+    'username_reference_to' => 'Το όνομα σας αναφέρθηκε στο ticket με κωδικό #:code',
     'from_date'     => 'Από',
-    'to_date'       => 'Μέχρι'
+    'to_date'       => 'Μέχρι',
 ];

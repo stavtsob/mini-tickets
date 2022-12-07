@@ -48,6 +48,7 @@ return [
     'delete'    => 'Delete',
     'delete_media'  => 'Delete file',
     'closed_small'  => 'closed',
+    'username_reference_to' => 'You have been referenced to ticket #:code',
     'from_date'     => 'From',
-    'to_date'       => 'To'
+    'to_date'       => 'To',
 ];
