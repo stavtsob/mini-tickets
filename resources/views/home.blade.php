@@ -31,8 +31,10 @@
                 </a>
                 <a href="?status_filter=3"  class="stats-item {{ $statusFilter == 3 ? 'selected':''}}" >
                     <div class="stat-number" style="position: relative;">
-                        {{$closedTickets}}
-                        <img  src="{{ asset('images/xmas-hat.png') }}" style="position: absolute;width:54px; top: -33px; right: 31px;rotate: 15deg">
+                        <span style="position: relative;">
+                            {{$closedTickets}}
+                            <img  src="{{ asset('images/xmas-hat.png') }}" style="position: absolute;width:54px; top: -25px; right: -28px;rotate: 15deg">
+                        </span>
                     </div>
                     <div>
                         tickets <b style="color:rgb(205, 76, 76);">{{__('general.closed_small')}}</b>.
