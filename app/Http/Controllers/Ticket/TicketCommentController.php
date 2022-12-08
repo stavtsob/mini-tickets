@@ -63,8 +63,8 @@ class TicketCommentController extends Controller
 
     protected function replaceUsernames($body, $ticketCode)
     {
-        preg_match_all('/@(\w+)/', $body, $users);
-        if (!isSet($users[1])) {
+        preg_match_all('/@(\w+.\w+)/', $body, $users);
+        if (!isset($users[1])) {
             return $body;
         }
         $userList = User::whereIn('username', $users[1])->get()->unique();
