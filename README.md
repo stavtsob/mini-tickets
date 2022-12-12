@@ -21,6 +21,16 @@ Feel free to fork the project and contribute to it.
 - Search in tickets by full text
 
 ## Changelog
+### 08-11-2022
+- Added a Santa Claus hat! Merry Christmas!
+### 07-11-2022
+- Users can now tag other users in their comments
+- Fixed some minor bugs
+- Made some minor changes that make the app easier to use
+### 20-11-2022
+- Added user notifications
+- Notifications on commenting in tickets that a user created or posted a comment
+- Fixed minor issues
 ### 19-11-2022 
 - Added file attachments to tickets
 - Minor fixes
