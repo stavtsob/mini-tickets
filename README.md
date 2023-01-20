@@ -1,7 +1,7 @@
 
 ![Logo](https://i.imgur.com/kXAKsOt.png)
 
-
+![Screenshot](https://i.imgur.com/TxaigQl.png)
 ## The Problem
 
 There are a lot of applications that focus on large scale team management, with a bunch of features, complex mechanisms etc. The problem comes when small teams or organizations try to use such applications. The complexity and the UI is so generic and complex, that it makes simple task management and team comunication difficult to handle.
