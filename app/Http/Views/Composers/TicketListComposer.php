@@ -37,7 +37,18 @@ class TicketListComposer
         foreach($departments as $department)
         {
             $tickets = $statusFilter == 0 ? Ticket::where('status', '<', 3) : Ticket::where('status', $statusFilter);
-            $ticketsByDepartment[$department->code] = $tickets->where('department', $department->code)->orderBy('priority', 'DESC')->get();
+            if($statusFilter != 3)
+            {
+                $ticketsByDepartment[$department->code] = $tickets->where('department', $department->code)
+                    ->orderBy('priority', 'DESC')
+                    ->get();
+            }
+            else
+            {
+                $ticketsByDepartment[$department->code] = $tickets->where('department', $department->code)
+                    ->orderBy('created_at', 'DESC')
+                    ->get();
+            }
         }
 
 
