@@ -31,7 +31,14 @@ class HomeController extends Controller
         // Filter tickets
         $statusFilter = $request->query('status_filter', 0);
         $tickets = $statusFilter == 0 ? Ticket::where('status', '<', 3) : Ticket::where('status', $statusFilter);
-        $tickets = $tickets->orderBy('priority', 'DESC')->get();
+        if($statusFilter == 3)
+        {
+            $tickets = $tickets->orderBy('created_at', 'DESC')->get();
+        }
+        else
+        {
+            $tickets = $tickets->orderBy('priority', 'DESC')->get();
+        }
 
         return view('home', [
             'tickets'           => $tickets ?? [],
