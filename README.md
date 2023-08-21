@@ -21,9 +21,9 @@ Feel free to fork the project and contribute to it.
 - Search in tickets by full text
 
 ## Changelog
-### 08-11-2022
+### 08-12-2022
 - Added a Santa Claus hat! Merry Christmas!
-### 07-11-2022
+### 07-12-2022
 - Users can now tag other users in their comments
 - Fixed some minor bugs
 - Made some minor changes that make the app easier to use
