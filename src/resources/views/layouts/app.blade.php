@@ -88,7 +88,7 @@
         <main class="py-4">
 
             @yield('content')
-            <x:notify-messages />
+            <x-notify::notify />
             @stack('modals')
         </main>
     </div>

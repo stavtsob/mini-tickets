@@ -33,7 +33,6 @@
                     <div class="stat-number" style="position: relative;">
                         <span style="position: relative;">
                             {{$closedTickets}}
-                            <img  src="{{ asset('images/xmas-hat.png') }}" style="position: absolute;width:54px; top: -25px; right: -28px;rotate: 15deg">
                         </span>
                     </div>
                     <div>
