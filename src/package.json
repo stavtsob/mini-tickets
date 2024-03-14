@@ -12,7 +12,7 @@
         "lodash": "^4.17.19",
         "postcss": "^8.4.31",
         "sass": "^1.32.11",
-        "vite": "^3.2.7"
+        "vite": "^3.2.8"
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^6.2.0",
